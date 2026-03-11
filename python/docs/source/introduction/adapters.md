@@ -17,14 +17,14 @@ Adapters in Jumpstarter follow a transformation pattern where:
 :config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
 flowchart LR
     subgraph "Client Side"
-        App["Application /\nTest Script"]
-        Adapter["Adapter\n(e.g. Port Forward,\nVNC, SSH)"]
+        App["Application /<br/>Test Script"]
+        Adapter["Adapter<br/>(e.g. Port Forward,<br/>VNC, SSH)"]
         DC["DriverClient"]
     end
 
     subgraph "Exporter Side"
         Driver["Driver"]
-        HW["Hardware /\nVirtual Device"]
+        HW["Hardware /<br/>Virtual Device"]
     end
 
     App --> Adapter

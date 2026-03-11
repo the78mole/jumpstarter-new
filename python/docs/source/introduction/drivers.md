@@ -26,11 +26,11 @@ flowchart LR
     end
 
     subgraph "Exporter Side"
-        DI["Driver\n(@export methods)"]
-        HW["Hardware /\nVirtual Device"]
+        DI["Driver<br/>(@export methods)"]
+        HW["Hardware /<br/>Virtual Device"]
     end
 
-    IF["Interface\n(ABCMeta)"] -.-> |"defines contract"| DC
+    IF["Interface<br/>(ABCMeta)"] -.-> |"defines contract"| DC
     IF -.-> |"defines contract"| DI
     Test --> DC
     DC <--> |"gRPC"| DI

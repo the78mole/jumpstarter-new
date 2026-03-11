@@ -191,22 +191,22 @@ flowchart LR
 
     Team -- "Request access" --> Controller
     Controller -- "Assign lease" --> Team
-    Controller -- "Record lease\nmetadata" --> Prometheus
+    Controller -- "Record lease<br/>metadata" --> Prometheus
 
     Controller -- "Connect to" --> Rack1
     Controller -- "Connect to" --> Rack2
 
-    Rack1 -- "Report usage\nmetrics" --> Prometheus
-    Rack2 -- "Report usage\nmetrics" --> Prometheus
+    Rack1 -- "Report usage<br/>metrics" --> Prometheus
+    Rack2 -- "Report usage<br/>metrics" --> Prometheus
 
-    Prometheus -- "Store\nmetrics" --> Grafana
-    Prometheus -- "Threshold\nalerts" --> AlertManager
-    Prometheus -- "Usage\nmetrics" --> UsageTracker
+    Prometheus -- "Store<br/>metrics" --> Grafana
+    Prometheus -- "Threshold<br/>alerts" --> AlertManager
+    Prometheus -- "Usage<br/>metrics" --> UsageTracker
 
-    UsageTracker -- "Monthly billing\nreport" --> Team
+    UsageTracker -- "Monthly billing<br/>report" --> Team
 
-    UsageTracker -- "Team resource\nusage" --> OpenCost
-    OpenCost -- "Cost\nallocation" --> Accounting
+    UsageTracker -- "Team resource<br/>usage" --> OpenCost
+    OpenCost -- "Cost<br/>allocation" --> Accounting
 ```
 
 This architecture implements a cost chargeback model for infrastructure

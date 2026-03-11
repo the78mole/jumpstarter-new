@@ -18,7 +18,7 @@ can integrate directly into your existing cloud or on-premises cluster.
 :config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
 flowchart TB
     subgraph "Kubernetes Cluster"
-        Controller["Controller\n(CRDs, Auth, Leases)"]
+        Controller["Controller<br/>(CRDs, Auth, Leases)"]
         Router1["Router 1"]
         Router2["Router 2"]
     end
@@ -29,8 +29,8 @@ flowchart TB
     end
 
     subgraph "Lab"
-        Exp1["Exporter 1\n(Host A)"]
-        Exp2["Exporter 2\n(Host B)"]
+        Exp1["Exporter 1<br/>(Host A)"]
+        Exp2["Exporter 2<br/>(Host B)"]
         DUT1["DUT 1"]
         DUT2["DUT 2"]
     end

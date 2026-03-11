@@ -35,13 +35,13 @@ flowchart TB
     CR["Jumpstarter CR"]
 
     subgraph "Operator Reconciliation"
-        RBAC["RBAC\n(ServiceAccount, Role,\nRoleBinding)"]
-        Certs["TLS Certificates\n(Issuer, CA, Secrets)"]
-        CtrlDeploy["Controller\nDeployment"]
-        RouterDeploy["Router\nDeployments (N)"]
-        Services["Services\n(gRPC, REST API)"]
-        Endpoints["Endpoints\n(Route / Ingress /\nNodePort / LB)"]
-        Config["ConfigMaps\n& Secrets"]
+        RBAC["RBAC<br/>(ServiceAccount, Role,<br/>RoleBinding)"]
+        Certs["TLS Certificates<br/>(Issuer, CA, Secrets)"]
+        CtrlDeploy["Controller<br/>Deployment"]
+        RouterDeploy["Router<br/>Deployments (N)"]
+        Services["Services<br/>(gRPC, REST API)"]
+        Endpoints["Endpoints<br/>(Route / Ingress /<br/>NodePort / LB)"]
+        Config["ConfigMaps<br/>& Secrets"]
     end
 
     CR --> RBAC --> Certs --> CtrlDeploy --> RouterDeploy --> Services --> Endpoints --> Config
