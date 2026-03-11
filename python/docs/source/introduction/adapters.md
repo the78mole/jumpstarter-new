@@ -13,6 +13,26 @@ Adapters in Jumpstarter follow a transformation pattern where:
 - The transformed interface is exposed to the user in a way that's tailored for
   specific scenarios
 
+```{mermaid}
+:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+flowchart LR
+    subgraph "Client Side"
+        App["Application /\nTest Script"]
+        Adapter["Adapter\n(e.g. Port Forward,\nVNC, SSH)"]
+        DC["DriverClient"]
+    end
+
+    subgraph "Exporter Side"
+        Driver["Driver"]
+        HW["Hardware /\nVirtual Device"]
+    end
+
+    App --> Adapter
+    Adapter --> DC
+    DC <--> |"gRPC"| Driver
+    Driver --> HW
+```
+
 The architecture consists of these key components:
 
 - **Adapter Base** - Adapters typically follow a context manager pattern using

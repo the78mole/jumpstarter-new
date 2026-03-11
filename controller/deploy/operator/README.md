@@ -28,6 +28,25 @@ the creation of:
 - **ConfigMaps & Secrets** – controller configuration, router configuration,
   and CA certificate bundles.
 
+### Reconciliation Overview
+
+```mermaid
+flowchart TB
+    CR["Jumpstarter CR"]
+
+    subgraph "Operator Reconciliation"
+        RBAC["RBAC\n(ServiceAccount, Role,\nRoleBinding)"]
+        Certs["TLS Certificates\n(Issuer, CA, Secrets)"]
+        CtrlDeploy["Controller\nDeployment"]
+        RouterDeploy["Router\nDeployments (N)"]
+        Services["Services\n(gRPC, REST API)"]
+        Endpoints["Endpoints\n(Route / Ingress /\nNodePort / LB)"]
+        Config["ConfigMaps\n& Secrets"]
+    end
+
+    CR --> RBAC --> Certs --> CtrlDeploy --> RouterDeploy --> Services --> Endpoints --> Config
+```
+
 ### Custom Resource Definitions
 
 | CRD | API Group | Description |

@@ -5,6 +5,29 @@ hardware. The Exporter typically runs on a "host" system directly connected to
 your hardware. It is called an Exporter because it "exports" the interfaces
 connected to the target device for client access.
 
+```{mermaid}
+:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+flowchart TB
+    subgraph "Host System"
+        Exporter["Exporter Process"]
+        Power["Power Driver"]
+        Serial["Serial Driver"]
+        Storage["Storage Driver"]
+    end
+
+    subgraph "Target Device"
+        DUT["Device Under Test"]
+    end
+
+    Client["Client / CI"] <-- "gRPC" --> Exporter
+    Exporter --> Power
+    Exporter --> Serial
+    Exporter --> Storage
+    Power --> DUT
+    Serial --> DUT
+    Storage --> DUT
+```
+
 ## Hosts
 
 Typically, the host will be a low-cost test system such as a single board
