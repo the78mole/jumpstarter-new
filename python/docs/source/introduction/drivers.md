@@ -17,8 +17,8 @@ Drivers in Jumpstarter follow a client/server architecture where:
 - Driver clients run on the client side and communicate with drivers via gRPC
 - Interface classes define the contract between implementations and clients
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart LR
     subgraph "Client Side"
         Test["Test / Script"]

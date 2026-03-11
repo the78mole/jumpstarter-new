@@ -5,8 +5,8 @@ hardware. The Exporter typically runs on a "host" system directly connected to
 your hardware. It is called an Exporter because it "exports" the interfaces
 connected to the target device for client access.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Host System"
         Exporter["Exporter Process"]

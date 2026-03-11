@@ -14,8 +14,8 @@ If you're already using a Kubernetes-native CI tool such as
 CI](https://docs.gitlab.com/user/clusters/agent/ci_cd_workflow/), Jumpstarter
 can integrate directly into your existing cloud or on-premises cluster.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Kubernetes Cluster"
         Controller["Controller<br/>(CRDs, Auth, Leases)"]

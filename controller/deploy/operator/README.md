@@ -31,6 +31,7 @@ the creation of:
 ### Reconciliation Overview
 
 ```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     CR["Jumpstarter CR"]
 

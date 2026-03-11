@@ -39,6 +39,7 @@ templates_path = ["_templates"]
 exclude_patterns = []
 
 mermaid_version = "10.9.1"
+myst_fence_as_directive = ["mermaid"]
 
 suppress_warnings = [
     "ref.class",  # suppress unresolved Python class references (external references

@@ -57,8 +57,8 @@ provide flexibility for different scenarios: *local* and *distributed* modes.
 In local mode, clients communicate directly with exporters running on the same
 machine or through direct network connections.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Developer Machine"
         Client["Client<br/>(Python Library/CLI)"]
@@ -108,8 +108,8 @@ exporters, managing leases that grant exclusive access to DUT resources, while
 JWT token-based authentication secures all connections between clients and
 exporters.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Kubernetes Cluster"
         Controller["Controller<br/>Resource Management"]
