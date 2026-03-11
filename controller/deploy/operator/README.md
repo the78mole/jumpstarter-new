@@ -1,8 +1,57 @@
 # jumpstarter-operator
-// TODO(user): Add simple overview of use/purpose
+
+The Jumpstarter Operator is a Kubernetes operator that automates the deployment
+and lifecycle management of the Jumpstarter service. It uses a single
+`Jumpstarter` Custom Resource (CR) to declaratively configure and manage
+controller pods, router pods, TLS certificates (via cert-manager), networking
+endpoints, RBAC, and authentication — all within a target namespace.
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+
+The operator watches for `Jumpstarter` custom resources
+(API group `operator.jumpstarter.dev/v1alpha1`) and reconciles the full
+Jumpstarter stack into the namespace where the CR resides. A single CR drives
+the creation of:
+
+- **Controller Deployment** – the main API server that manages clients,
+  exporters, and leases through gRPC and an optional REST API.
+- **Router Deployments** – one Deployment per replica, each responsible for
+  routing gRPC traffic between clients and exporters.
+- **TLS Certificates** – optionally managed by cert-manager with self-signed CA
+  or an external Issuer/ClusterIssuer.
+- **Networking Resources** – OpenShift Routes, Kubernetes Ingresses, NodePort
+  services, or LoadBalancer services depending on the cluster environment.
+- **RBAC** – ServiceAccounts, Roles, and RoleBindings required by the managed
+  controller and router pods.
+- **Authentication** – internal token-based auth, Kubernetes service-account
+  auth, and external JWT/OIDC providers.
+- **ConfigMaps & Secrets** – controller configuration, router configuration,
+  and CA certificate bundles.
+
+### Custom Resource Definitions
+
+| CRD | API Group | Description |
+|-----|-----------|-------------|
+| `Jumpstarter` | `operator.jumpstarter.dev/v1alpha1` | Top-level CR that defines a full Jumpstarter deployment |
+| `Client` | `jumpstarter.dev/v1alpha1` | Represents an authenticated client |
+| `Exporter` | `jumpstarter.dev/v1alpha1` | Represents a device exporter |
+| `Lease` | `jumpstarter.dev/v1alpha1` | Exclusive access grant from a client to an exporter |
+| `ExporterAccessPolicy` | `jumpstarter.dev/v1alpha1` | Label-based access control between clients and exporters |
+
+### Status Conditions
+
+The operator reports readiness through standard Kubernetes conditions on the
+`Jumpstarter` resource:
+
+| Condition | Description |
+|-----------|-------------|
+| `CertManagerAvailable` | cert-manager CRDs are installed in the cluster |
+| `IssuerReady` | The configured cert-manager Issuer is ready |
+| `ControllerCertificateReady` | Controller TLS certificate secret exists |
+| `RouterCertificatesReady` | All router TLS certificate secrets exist |
+| `ControllerDeploymentReady` | Controller Deployment is available |
+| `RouterDeploymentsReady` | All router Deployments are available |
+| `Ready` | Aggregate condition — true when all components are ready |
 
 ## Getting Started
 
@@ -111,7 +160,21 @@ previously added to 'dist/chart/values.yaml' or 'dist/chart/manager/manager.yaml
 is manually re-applied afterwards.
 
 ## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
+
+Contributions are welcome! To get started:
+
+1. Fork the repository and create a feature branch.
+2. Ensure your changes compile and pass existing tests:
+   ```sh
+   make test
+   ```
+3. Follow the [Kubebuilder conventions](https://book.kubebuilder.io/introduction.html)
+   for controller and API changes.
+4. If you modify CRD types in `api/v1alpha1/`, regenerate manifests:
+   ```sh
+   make manifests generate
+   ```
+5. Open a pull request with a clear description of the change.
 
 **NOTE:** Run `make help` for more information on all potential `make` targets
 

@@ -5,10 +5,28 @@
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/jumpstarter-dev/jumpstarter-controller/total)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/jumpstarter-dev/jumpstarter-controller)
 
-// TODO(user): Add simple overview of use/purpose
+The Jumpstarter controller is the Kubernetes-native backend for the Jumpstarter
+hardware testing framework. It manages clients, exporters, leases, and access
+policies through Custom Resource Definitions (CRDs), and exposes gRPC and REST
+API endpoints that the `jmp` CLI and automation pipelines use to interact with
+physical and virtual devices under test.
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+
+The controller runs inside a Kubernetes cluster and provides:
+
+- **Device Management** – tracks connected exporters and their labels so that
+  CI/CD pipelines can request hardware by capabilities rather than by name.
+- **Lease Scheduling** – grants exclusive, time-limited access to exporters via
+  label-selector-based scheduling, similar to Kubernetes node selection.
+- **gRPC Router** – a horizontally scalable router layer that tunnels gRPC
+  traffic between remote clients and exporters.
+- **Authentication** – supports internal tokens, Kubernetes service-account
+  tokens, and external JWT/OIDC identity providers.
+- **REST API** – an optional HTTP/JSON interface for listing resources and
+  managing leases.
+- **TLS** – automatic certificate provisioning through cert-manager or
+  manually provided secrets.
 
 ## Getting Started
 
@@ -95,7 +113,21 @@ kubectl apply -f https://raw.githubusercontent.com/<org>/jumpstarter-router/<tag
 ```
 
 ## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
+
+Contributions are welcome! To get started:
+
+1. Fork the repository and create a feature branch.
+2. Ensure your changes compile and pass existing tests:
+   ```sh
+   make test
+   ```
+3. Follow the [Kubebuilder conventions](https://book.kubebuilder.io/introduction.html)
+   for controller and API changes.
+4. If you modify CRD types, regenerate manifests:
+   ```sh
+   make manifests generate
+   ```
+5. Open a pull request with a clear description of the change.
 
 **NOTE:** Run `make help` for more information on all potential `make` targets
 
