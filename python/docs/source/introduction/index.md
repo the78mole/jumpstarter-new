@@ -57,16 +57,16 @@ provide flexibility for different scenarios: *local* and *distributed* modes.
 In local mode, clients communicate directly with exporters running on the same
 machine or through direct network connections.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Developer Machine"
-        Client["Client\n(Python Library/CLI)"]
-        Exporter["Exporter\n(Local Service)"]
+        Client["Client<br/>(Python Library/CLI)"]
+        Exporter["Exporter<br/>(Local Service)"]
     end
 
     subgraph "Target Devices"
-        DUT["Physical/Virtual\nDevice Under Test"]
+        DUT["Physical/Virtual<br/>Device Under Test"]
         Power["Power Interface"]
         Serial["Serial Interface"]
         Storage["Storage Interface"]
@@ -108,23 +108,23 @@ exporters, managing leases that grant exclusive access to DUT resources, while
 JWT token-based authentication secures all connections between clients and
 exporters.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Kubernetes Cluster"
-        Controller["Controller\nResource Management"]
-        Router["Router\nMessage Routing"]
-        Auth["Authentication\nJWT Tokens"]
+        Controller["Controller<br/>Resource Management"]
+        Router["Router<br/>Message Routing"]
+        Auth["Authentication<br/>JWT Tokens"]
     end
 
     subgraph "Test Runners"
-        Client1["Client 1\n(CI Pipeline)"]
-        Client2["Client 2\n(Developer)"]
+        Client1["Client 1<br/>(CI Pipeline)"]
+        Client2["Client 2<br/>(Developer)"]
     end
 
     subgraph "Lab Resources"
-        Exporter1["Exporter 1\n(Physical Hardware)"]
-        Exporter2["Exporter 2\n(Virtual Devices)"]
+        Exporter1["Exporter 1<br/>(Physical Hardware)"]
+        Exporter2["Exporter 2<br/>(Virtual Devices)"]
         subgraph "Devices"
             DUT1["Physical Device 1"]
             DUT2["Physical Device 2"]

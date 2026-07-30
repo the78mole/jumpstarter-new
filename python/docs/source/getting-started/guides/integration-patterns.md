@@ -14,8 +14,8 @@ development lifecycle:
 
 ### Continuous Integration with System Testing
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Version Control"
         GitRepo["Git Repository"]
@@ -83,8 +83,8 @@ hardware-test:
 
 ### Self-Hosted CI Runner with Attached System
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Version Control"
         GitRepo["Git Repository"]
@@ -161,8 +161,8 @@ hardware-test:
 Organizations can implement usage-based billing for teams through a cost
 management layer.
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart LR
     subgraph "Kubernetes"
         Controller["Controller"]
@@ -191,22 +191,22 @@ flowchart LR
 
     Team -- "Request access" --> Controller
     Controller -- "Assign lease" --> Team
-    Controller -- "Record lease\nmetadata" --> Prometheus
+    Controller -- "Record lease<br/>metadata" --> Prometheus
 
     Controller -- "Connect to" --> Rack1
     Controller -- "Connect to" --> Rack2
 
-    Rack1 -- "Report usage\nmetrics" --> Prometheus
-    Rack2 -- "Report usage\nmetrics" --> Prometheus
+    Rack1 -- "Report usage<br/>metrics" --> Prometheus
+    Rack2 -- "Report usage<br/>metrics" --> Prometheus
 
-    Prometheus -- "Store\nmetrics" --> Grafana
-    Prometheus -- "Threshold\nalerts" --> AlertManager
-    Prometheus -- "Usage\nmetrics" --> UsageTracker
+    Prometheus -- "Store<br/>metrics" --> Grafana
+    Prometheus -- "Threshold<br/>alerts" --> AlertManager
+    Prometheus -- "Usage<br/>metrics" --> UsageTracker
 
-    UsageTracker -- "Monthly billing\nreport" --> Team
+    UsageTracker -- "Monthly billing<br/>report" --> Team
 
-    UsageTracker -- "Team resource\nusage" --> OpenCost
-    OpenCost -- "Cost\nallocation" --> Accounting
+    UsageTracker -- "Team resource<br/>usage" --> OpenCost
+    OpenCost -- "Cost<br/>allocation" --> Accounting
 ```
 
 This architecture implements a cost chargeback model for infrastructure
@@ -224,8 +224,8 @@ resources:
 
 ### Traditional Developer Workflow
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Workstation"
         TestCode["Test Code"]
@@ -265,8 +265,8 @@ your local environment.
 
 ### Cloud Native Developer Workflow
 
-```{mermaid}
-:config: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
 flowchart TB
     subgraph "Web Browser"
         Dev["Developer"]

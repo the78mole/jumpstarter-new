@@ -19,6 +19,9 @@ __pycache__/
 dist/
 build/
 
+# Sphinx documentation build output
+python/docs/_build/
+
 # Editor/IDE
 .vscode/
 .idea/

@@ -17,6 +17,26 @@ Drivers in Jumpstarter follow a client/server architecture where:
 - Driver clients run on the client side and communicate with drivers via gRPC
 - Interface classes define the contract between implementations and clients
 
+```mermaid
+%%{init: {"theme":"base","themeVariables":{"primaryColor":"#f8f8f8","primaryTextColor":"#000","primaryBorderColor":"#e5e5e5","lineColor":"#3d94ff","secondaryColor":"#f8f8f8","tertiaryColor":"#fff"}}}%%
+flowchart LR
+    subgraph "Client Side"
+        Test["Test / Script"]
+        DC["DriverClient"]
+    end
+
+    subgraph "Exporter Side"
+        DI["Driver<br/>(@export methods)"]
+        HW["Hardware /<br/>Virtual Device"]
+    end
+
+    IF["Interface<br/>(ABCMeta)"] -.-> |"defines contract"| DC
+    IF -.-> |"defines contract"| DI
+    Test --> DC
+    DC <--> |"gRPC"| DI
+    DI --> HW
+```
+
 The architecture follows a pattern with these key components:
 
 - **Interface Class** - An abstract base class using Python's ABCMeta to define
